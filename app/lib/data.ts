@@ -14,6 +14,12 @@ export async function fetchRevenue() {
     // Artificially delay a response for demo purposes.
     // Don't do this in production :)
 
+    // Oluşturduğumuz dashboard uygulaması dinamiktir.
+    // Ancak, önceki bölümde bahsedilen bir sorun daha var. Bir veri isteği diğerlerinden daha yavaşsa ne olur?
+    // Yavaş bir veri alımını simüle edelim. Dosyanızda data.ts, içindeki console.log ve işaretlerini yorumdan çıkarın :setTimeoutfetchRevenue()
+    // Burada, yavaş bir veri alımını simüle etmek için yapay 3 saniyelik bir gecikme eklediniz. Sonuç olarak, artık tüm sayfanız, veriler alınırken ziyaretçiye kullanıcı arayüzünü göstermekten alıkonuldu. Bu bizi geliştiricilerin çözmesi gereken yaygın bir zorluğa getiriyor:
+    // Dinamik işlemeyle uygulamanızın hızı, en yavaş veri alma hızınız kadardır.
+    
     // console.log('Fetching revenue data...');
     // await new Promise((resolve) => setTimeout(resolve, 3000));
 
