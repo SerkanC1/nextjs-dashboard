@@ -53,6 +53,8 @@ export async function fetchCardData() {
     // You can probably combine these into a single SQL query
     // However, we are intentionally splitting them to demonstrate
     // how to initialize multiple queries in parallel with JS.
+
+    // aşağıdaki const istekleri birbirini bekler. 
     const invoiceCountPromise = sql`SELECT COUNT(*) FROM invoices`;
     const customerCountPromise = sql`SELECT COUNT(*) FROM customers`;
     const invoiceStatusPromise = sql`SELECT
@@ -60,7 +62,8 @@ export async function fetchCardData() {
          SUM(CASE WHEN status = 'pending' THEN amount ELSE 0 END) AS "pending"
          FROM invoices`;
 
-    const data = await Promise.all([
+    // aşağıdaki istekler paralel şekilde aynı gelir. 
+    const data = await Promise.all([  // tüm istekleri aynı anda parlel olarak almak. isteklerden biri yavaşsa diğerleri de yavaş gelir.
       invoiceCountPromise,
       customerCountPromise,
       invoiceStatusPromise,
