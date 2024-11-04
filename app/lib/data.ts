@@ -19,13 +19,13 @@ export async function fetchRevenue() {
     // Yavaş bir veri alımını simüle edelim. Dosyanızda data.ts, içindeki console.log ve işaretlerini yorumdan çıkarın :setTimeoutfetchRevenue()
     // Burada, yavaş bir veri alımını simüle etmek için yapay 3 saniyelik bir gecikme eklediniz. Sonuç olarak, artık tüm sayfanız, veriler alınırken ziyaretçiye kullanıcı arayüzünü göstermekten alıkonuldu. Bu bizi geliştiricilerin çözmesi gereken yaygın bir zorluğa getiriyor:
     // Dinamik işlemeyle uygulamanızın hızı, en yavaş veri alma hızınız kadardır.
-    
-    // console.log('Fetching revenue data...');
-    // await new Promise((resolve) => setTimeout(resolve, 3000));
+
+    console.log('Fetching revenue data...');
+    await new Promise((resolve) => setTimeout(resolve, 3000));
 
     const data = await sql<Revenue>`SELECT * FROM revenue`;
 
-    // console.log('Data fetch completed after 3 seconds.');
+    console.log('Data fetch completed after 3 seconds.');
 
     return data.rows;
   } catch (error) {
